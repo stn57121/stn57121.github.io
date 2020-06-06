@@ -1,0 +1,5 @@
+{
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\wsl.exe",
+    "C_Cpp.clang_format_style": "Google",
+    "git.defaultCloneDirectory": "/mnt/c/Users/stnch/VSCode/github"
+}

@@ -1,0 +1,49 @@
+{
+    "version": "2.0.0",
+    "windows": {
+        "options": {
+            "shell": {
+                "executable": "bash.exe",
+                "args": [
+                    "-c"
+                ]
+            }
+        }
+    },
+    "tasks": [
+        {
+            "label": "compile",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-std=c++17",
+                "-g",
+                "-O0",
+                "${relativeFileDirname}/${fileBasename}",
+                "-o",
+                "${relativeFileDirname}/${fileBasenameNoExtension}.out",
+                ";",
+                "./${relativeFileDirname}/${fileBasenameNoExtension}.out",
+                "<",
+                "${relativeFileDirname}/input.txt",
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+        },
+        {
+            "label": "exec",
+            "type": "shell",
+            "command": "./exec.sh",
+            "args": [
+                "\"${relativeFileDirname}\"",
+                "\"${fileBasenameNoExtension}\""
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+        },
+    ]
+}
